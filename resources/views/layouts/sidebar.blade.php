@@ -12,15 +12,15 @@
     <hr class="sidebar-divider">
 
     <!-- klub -->
-    <li class="nav-item {{ request()->is('admin/teams') || request()->is('admin/teams') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.teams.index') }}">
+    <li class="nav-item {{ request()->is('teams') || request()->is('teams') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('teams.index') }}">
             <i class="fas fa-cogs"></i>
             <span>Input Data Klub</span></a>
     </li>
 
     <!-- skor -->
-    <li class="nav-item {{ request()->is('admin/games') || request()->is('admin/games') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('admin.games.index') }}">
+    <li class="nav-item {{ request()->is('games') || request()->is('games') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('games.index') }}">
             <i class="fas fa-cogs"></i>
             <span>Input Skor Pertandingan</span></a>
     </li>

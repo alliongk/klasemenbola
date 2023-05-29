@@ -4,7 +4,7 @@
 <div class="row mt-5 justify-content-center">
   <div class="col-8 mb-4">
     <div class="mb-2">          
-      <a href="{{route('admin.games.index')}}" class="btn btn-primary" role="button">Input Data</a>
+      <a href="{{route('games.index')}}" class="btn btn-primary" role="button">Input Data</a>
     </div>
       <div class="card">        
           <h3 class="card-header">Klasemen Bola</h3>

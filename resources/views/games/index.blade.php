@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app_backend')
 
 @section('content')
 <div class="container-fluid">
@@ -8,7 +8,7 @@
                 {{ __('Skor Pertandingan') }}
                 </h6>
                 <div class="ml-auto">
-                    <a href="{{ route('admin.games.create') }}" class="btn btn-primary">
+                    <a href="{{ route('games.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>

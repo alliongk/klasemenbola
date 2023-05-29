@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Models\Game;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\Admin\TeamRequest;
+use App\Http\Requests\TeamRequest;
 
 class TeamController extends Controller
 {
@@ -16,28 +15,22 @@ class TeamController extends Controller
     {
         $teams = Team::all();
 
-        return view('admin.teams.index', compact('teams'));
+        return view('teams.index', compact('teams'));
     }
 
     public function create(): View
     {
-        return view('admin.teams.create');
+        return view('teams.create');
     }
 
     public function store(TeamRequest $request): RedirectResponse
     {
         Team::create($request->validated());
 
-        return redirect()->route('admin.teams.index')->with([
+        return redirect()->route('teams.index')->with([
             'message' => 'input data sukses !',
             'alert-type' => 'success'
         ]);
     }
 
-    public function massDestroy()
-    {
-        Team::whereIn('id', request('ids'))->delete();
-
-        return response()->noContent();
-    }
 }

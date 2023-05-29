@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.app_backend')
 
 @section('content')
 <div class="container-fluid">
@@ -20,14 +20,14 @@
             <div class="card-header">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">{{ __('Tambah Pertandingan') }}</h1>
-                    <a href="{{ route('admin.games.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Kembali') }}</a>
+                    <a href="{{ route('games.index') }}" class="btn btn-primary btn-sm shadow-sm">{{ __('Kembali') }}</a>
                 </div>
             </div>
 
 
             <div class="card-body" id="slot">
                
-                <form action="{{ route('admin.games.store') }}" method="POST">
+                <form action="{{ route('games.store') }}" method="POST">
                     @csrf    
                                   
                     <div class="form-group">

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\Admin\GameRequest;
+use App\Http\Requests\GameRequest;
 
 class GameController extends Controller
 {
@@ -17,7 +17,7 @@ class GameController extends Controller
         
         $games = Game::all();
 
-        return view('admin.games.index', compact('games'));
+        return view('games.index', compact('games'));
     }
 
     public function create(): View
@@ -25,7 +25,7 @@ class GameController extends Controller
         
         $teams = Team::all()->pluck('name', 'id');
 
-        return view('admin.games.create', compact('teams'));
+        return view('games.create', compact('teams'));
     }
 
     public function store(GameRequest $request): RedirectResponse
@@ -33,16 +33,10 @@ class GameController extends Controller
         
         Game::create($request->validated());
 
-        return redirect()->route('admin.games.index')->with([
+        return redirect()->route('games.index')->with([
             'message' => 'successfully created !',
             'alert-type' => 'success'
         ]);
     }
 
-    public function massDestroy()
-    {
-        Game::whereIn('id', request('ids'))->delete();
-
-        return response()->noContent();
-    }
 }
